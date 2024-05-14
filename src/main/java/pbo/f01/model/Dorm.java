@@ -36,9 +36,9 @@ public class Dorm {
     public short getCapacity(){
         return this.capacity;
     }
-
+ 
     public String getGender(){
-        return this.gender;
+        return this.gender; 
     }
 
     public void setCapacity(short capacity){

@@ -9,7 +9,7 @@
       <property name="javax.persistence.jdbc.url" value="jdbc:h2:./db/dormy"></property>
       <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"></property>
       <property name="eclipselink.ddl-generation" value="create-tables"></property>
-      <property name="eclipselink.ddl-generation.output-mode" value="db"></property>
+      <property name="eclipselink.ddl-generation.output-mode" value="database"></property>
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"></property>
       <property name="eclipselink.logging.level" value="WARNING"/>
     </properties>
