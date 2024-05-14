@@ -1,0 +1,6 @@
+2024-05-14 14:46:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DORM" not found (this database is empty); SQL statement:
+INSERT INTO Dorm (name, capasity, gender) VALUES (?, ?, ?) [42104-212]
+2024-05-14 14:51:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DORM" not found (this database is empty); SQL statement:
+INSERT INTO Dorm (name, capasity, gender) VALUES (?, ?, ?) [42104-212]
