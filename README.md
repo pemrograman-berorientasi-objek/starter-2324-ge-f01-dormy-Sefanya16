@@ -98,7 +98,7 @@ Perhatikan contoh berikut.
 ```bash
 dorm-add#Pniel#5#female
 dorm-add#Kapernaum#5#male
-student-add#12S21010#Bobby Siagian#2021#male
+student-add#12S21010#Bobby Siagian#2021#male  
 student-add#12S21001#Dhino Turnip#2021#male
 student-add#12S21006#Weny Sitinjak#2021#female
 assign#12S21010#Kapernaum
