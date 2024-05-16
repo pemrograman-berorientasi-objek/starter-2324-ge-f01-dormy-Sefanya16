@@ -18,7 +18,7 @@ public class Dorm {
     @Column(name="studentsCount", nullable = false)
     private int studentsCount;
 
-    @OneToMany(mappedBy = "dorms")
+    @ManyToMany(mappedBy = "dorms")
     private List<Student> students = new ArrayList<>();
 
     public Dorm(){
@@ -31,6 +31,15 @@ public class Dorm {
         this.gender=gender;
         this.studentsCount = 0;
     }
+
+    public Dorm(String name, short capacity, String gender, List<Student> std){
+        this.name=name;
+        this.capacity=capacity;
+        this.gender=gender;
+        this.students = std;
+        this.studentsCount = std.size();
+    }
+
 
     
    

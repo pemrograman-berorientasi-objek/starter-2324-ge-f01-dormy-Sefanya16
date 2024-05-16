@@ -18,9 +18,12 @@ public class Student {
     @Column(name="gender", nullable = false,length = 255)
     private String gender;
 
-    @ManyToOne(targetEntity=Dorm.class, cascade = CascadeType.ALL)
-    @JoinTable(name = "student_dorm", joinColumns = @JoinColumn(name = "dorm_Id", referencedColumnName = "Id"), 
-    inverseJoinColumns = @JoinColumn(name = "dorm_name", referencedColumnName = "name"))
+    @ManyToMany(targetEntity = Dorm.class, cascade = CascadeType.ALL)
+    @JoinTable(
+        name = "student_dorm",
+        joinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "dorm_name", referencedColumnName = "name")
+    )
     private List<Dorm> dorms = new ArrayList<>();
 
     public Student(){
