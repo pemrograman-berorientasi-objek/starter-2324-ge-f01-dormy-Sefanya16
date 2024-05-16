@@ -67,56 +67,18 @@ public class App {
     }
 
     public static void addStudent(String[] buffer) {
-
         String studentId = buffer[0];
 
         entityManager.getTransaction().begin();
-        // Check if student with the same ID already exists
         if (entityManager.find(Student.class, studentId) == null) {
             String studentName = buffer[1];
             String entranceYear = buffer[2];
             String gender = buffer[3];
             Student student = new Student(studentId, studentName, entranceYear, gender);
             entityManager.persist(student);
-            entityManager.getTransaction().commit();
-        } else {
-            // System.out.println("Student with ID " + studentId + " already exists.");
-        }
-
+        } 
+        entityManager.getTransaction().commit();
     }
-
-    // public static void assignStudentToDorm(String[] buffer) {
-    // if (buffer.length == 4) { // Fixed the length check from 'parts' to 'buffer'
-    // String studentId = buffer[1];
-    // String dormName = buffer[2];
-    // Student student = entityManager.find(Student.class, studentId); // Changed
-    // 'em' to 'entityManager'
-    // Dorm dorm = entityManager.find(Dorm.class, dormName);
-
-    // System.out.println(student);
-    // System.out.println(dorm);
-    // if (student != null && dorm != null &&
-    // student.getGender().equals(dorm.getGender()) && student.getDorms().isEmpty())
-    // {
-    // if (dorm.getStudentsCount() < dorm.getCapacity()) {
-    // student.getDorms().add(dorm);
-    // dorm.getStudents().add(student);
-    // dorm.setStudentsCount(dorm.getStudentsCount() + 1);
-    // entityManager.getTransaction().begin();
-    // entityManager.merge(student);
-    // entityManager.merge(dorm);
-    // entityManager.getTransaction().commit();
-    // System.out.println("fdsfsd");
-    // } else {
-    // // System.out.println("Dorm " + dormName + " is full.");
-    // }
-    // } else {
-    // // System.out.println("Student " + studentId + " cannot be assigned to dorm "
-    // + dormName + ".");
-    // }
-    // }
-    // }
-
     public static void assignStudentToDorm(String param) {
         String[] buffer = param.split("#");
         String studentId = buffer[1];
@@ -124,11 +86,10 @@ public class App {
 
         Student student = entityManager.find(Student.class, studentId);
         Dorm dorm = entityManager.find(Dorm.class, dormName);
-
-        String stdGender = student.getGender();
-        String drmGender = dorm.getGender();
-
         if (student != null && dorm != null ) {
+            
+                    String stdGender = student.getGender();
+                    String drmGender = dorm.getGender();
             if (dorm.getStudentsCount() < dorm.getCapacity()) {
                 if (stdGender.equals(drmGender)) {
                     student.getDorms().add(dorm);
